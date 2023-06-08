@@ -25,3 +25,4 @@ userOne.logInfo = function () {
 userOne.logInfo();
 userOne.login();
 userOne.logout();
+class User {}
