@@ -30,6 +30,12 @@ class User {
     this.email = email;
     this.name = name;
   }
+  login() {
+    console.log(this.email, "just logged in");
+  }
+  logout() {
+    console.log(this.email, "just logged out");
+  }
 }
 var userOne = new User("scream@blahblah.com", "scream");
 var userTwo = new User("calm@down.com", "calm");
@@ -41,3 +47,6 @@ console.log(userTwo);
  * 2) sets the value of this to be the new empty object
  * 3) calls the constructor method
  */
+
+userOne.login();
+userTwo.logout();
