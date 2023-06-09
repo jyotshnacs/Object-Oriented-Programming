@@ -45,8 +45,22 @@ class User {
     return this;
   }
 }
+
+class Admin extends User {
+  deleteUser(user) {
+    users = users.filter((el) => {
+      return el.email != user.email;
+    });
+  }
+}
 var userOne = new User("scream@blahblah.com", "scream");
 var userTwo = new User("calm@down.com", "calm");
+var admin = new Admin("example@ex.com", "example");
+
+var users = [userOne, userTwo, admin];
+
+admin.deleteUser(userTwo);
+console.log("users:", users);
 
 console.log(userOne);
 console.log(userTwo);
