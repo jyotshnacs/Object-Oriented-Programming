@@ -26,7 +26,7 @@
 // userOne.login();
 // userOne.logout();
 
-// Constructor
+// Class Constructor
 // class User {
 //   constructor(email, name) {
 //     this.email = email;
@@ -91,9 +91,27 @@ User.prototype.logout = function () {
   this.online = false;
   console.log(this.email, "has logged out");
 };
+function Admin(...args) {
+  // console.log("args:", args);
+  User.apply(this, args);
+  this.role = "super admin";
+}
+
+Admin.prototype = Object.create(User.prototype);
+
+Admin.prototype.deleteUser = function (user) {
+  users = users.filter((u) => {
+    return u.email != user.email;
+  });
+};
 
 var userOne = new User("scream@blahblah.com", "scream");
 var userTwo = new User("calm@down.com", "calm");
+var admin = new Admin("proto@inherit.com", "prototype");
 
+var users = [userOne, userTwo, admin];
+console.log("users:", users);
+
+console.log("admin:", admin);
 console.log(userOne);
 userTwo.login();
